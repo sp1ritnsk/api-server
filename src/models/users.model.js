@@ -13,6 +13,8 @@ module.exports = function (app) {
       lastname: { type: String },
       phone: { type: String },
       entity: { type: String },
+      iin: { type: Number },
+      bin: { type: Number }
     },
     {
       timestamps: true,

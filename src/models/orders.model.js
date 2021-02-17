@@ -7,16 +7,18 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    LoginNTRIP: { type: String, },
-    PasswordNTRIP: { type: String, },
-    CompanyName: { type: String, required: true },
-    Region: { type: String, required: true },
-    District: { type: String, required: true },
-    Address: { type: String, required: true },
-    Product: { type: String, required: true },
-    Comment: { type: String, },
+    loginNTRIP: { type: String, },
+    passwordNTRIP: { type: String, },
+    companyName: { type: String, required: true },
+    city: { type: String, required: true },
+    region: { type: String, required: true },
+    district: { type: String, required: true },
+    address: { type: String, required: true },
+    product: { type: String, required: true },
+    comment: { type: String, },
     begin_date: {type: Date, required: [true, 'Необходимо указать дату начала подписки']},
-    end_date: {type: Date }
+    end_date: {type: Date },
+    plan: {type: String}
   }, {
     timestamps: true
   });
