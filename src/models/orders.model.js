@@ -9,16 +9,14 @@ module.exports = function (app) {
   const schema = new Schema({
     loginNTRIP: { type: String, },
     passwordNTRIP: { type: String, },
-    companyName: { type: String, required: true },
+    company: { type: String, required: true },
     city: { type: String, required: true },
     region: { type: String, required: true },
     district: { type: String, required: true },
     address: { type: String, required: true },
-    product: { type: String, required: true },
+    plan: { type: String, required: true },
     comment: { type: String, },
-    begin_date: {type: Date, required: [true, 'Необходимо указать дату начала подписки']},
-    end_date: {type: Date },
-    plan: {type: String}
+    begin_date: {type: Date, required: [true, 'Необходимо указать дату начала подписки']}
   }, {
     timestamps: true
   });
