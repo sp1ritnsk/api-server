@@ -7,16 +7,18 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    user: {type: Schema.Types.ObjectId, ref: "users"},
-    loginNTRIP: { type: String, },
-    passwordNTRIP: { type: String, },
+    user: {type: Schema.Types.ObjectId, ref: 'users'},
+    firstname: { type: String, },
+    lastname: { type: String, },
+    iin: { type: Number, required: [true, 'Введите ИИН правильно'] },
+    bin: { type: Number, required: [true, 'Введите БИН правильно'] },
+    phone: { type: Number, require: [true, 'Введите Номер правильно'] },
     company: { type: String, required: true },
     city: { type: String, required: true },
     region: { type: String, required: true },
     district: { type: String, required: true },
     address: { type: String, required: true },
     plan: { type: String, required: true },
-    comment: { type: String, },
     begin_date: {type: Date, required: [true, 'Необходимо указать дату начала подписки']}
   }, {
     timestamps: true

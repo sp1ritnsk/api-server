@@ -9,12 +9,6 @@ module.exports = function (app) {
     {
       email: { type: String, unique: true, lowercase: true },
       password: { type: String, required: [true, 'Необходимо указать пароль'] },
-      firstname: { type: String },
-      lastname: { type: String },
-      phone: { type: String },
-      entity: { type: String },
-      iin: { type: Number },
-      bin: { type: Number }
     },
     {
       timestamps: true,

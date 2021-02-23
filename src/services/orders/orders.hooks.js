@@ -1,8 +1,13 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
+const { setField } = require('feathers-authentication-hooks');
 
 module.exports = {
   before: {
-    all: [ authenticate('jwt') ],
+    all: [ authenticate('jwt'),
+      setField({
+        from: 'params.user._id',
+        as: 'params.query.user'
+      })],
     find: [],
     get: [],
     create: [],
