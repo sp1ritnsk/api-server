@@ -1,5 +1,4 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
-const { iff, disallow, discard, isProvider } = require("feathers-hooks-common");
 const {
   hashPassword, protect
 } = require('@feathersjs/authentication-local').hooks;

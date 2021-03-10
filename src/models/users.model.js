@@ -3,34 +3,34 @@
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
-  const modelName = "users";
-  const mongooseClient = app.get("mongooseClient");
+  const modelName = 'users';
+  const mongooseClient = app.get('mongooseClient');
   const schema = new mongooseClient.Schema(
     {
       email: {
         type: String,
         unique: true,
         lowercase: true,
-        required: [true, "Необходимо указать email"],
+        required: [true, 'Необходимо указать email'],
       },
-      password: { type: String, required: [true, "Необходимо указать пароль"] },
+      password: { type: String, required: [true, 'Необходимо указать пароль'] },
       firstname: {
         type: String,
-        required: [true, "Необходимо указать имя"],
+        required: [true, 'Необходимо указать имя'],
       },
       lastname: {
         type: String,
-        required: [true, "Необходимо указать фамилию"],
+        required: [true, 'Необходимо указать фамилию'],
       },
       // выясниь у бухгалтерии и юристов нужно ли им отчество, если нет - убрать
       patronym: {
         type: String,
-        required: [true, "Необходимо указать отчество"],
+        required: [true, 'Необходимо указать отчество'],
       },
-      phone: { type: String, required: [true, "Необходимо указать телефон"] },
+      phone: { type: String, required: [true, 'Необходимо указать телефон'] },
       type: {
         type: String,
-        required: [true, "Необходимо указать тип субъекта"],
+        required: [true, 'Необходимо указать тип субъекта'],
       },
       iin: { type: Number },
       bin: { type: Number },

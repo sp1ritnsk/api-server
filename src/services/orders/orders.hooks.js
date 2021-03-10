@@ -1,6 +1,6 @@
-const { authenticate } = require("@feathersjs/authentication").hooks;
-const { setField } = require("feathers-authentication-hooks");
-const { iff, disallow, discard, isProvider } = require("feathers-hooks-common");
+const { authenticate } = require('@feathersjs/authentication').hooks;
+const { setField } = require('feathers-authentication-hooks');
+const { iff, disallow } = require('feathers-hooks-common');
 const {
   protect
 } = require('@feathersjs/authentication-local').hooks;
@@ -8,32 +8,32 @@ const {
 
 module.exports = {
   before: {
-    all: [authenticate("jwt")],
+    all: [authenticate('jwt')],
     find: [
       iff(
-        (context) => context.params.user.role !== "admin",
+        (context) => context.params.user.role !== 'admin',
         setField({
-          from: "params.user._id",
-          as: "params.query.user",
+          from: 'params.user._id',
+          as: 'params.query.user',
         })
       ),
     ],
     get: [
       iff(
-        (context) => context.params.user.role !== "admin",
+        (context) => context.params.user.role !== 'admin',
         setField({
-          from: "params.user._id",
-          as: "params.query.user",
+          from: 'params.user._id',
+          as: 'params.query.user',
         })
       ),
     ],
     create: [],
     update: [
-      iff((context) => context.params.user.role !== "admin", disallow()),
+      iff((context) => context.params.user.role !== 'admin', disallow()),
     ],
-    patch: [iff((context) => context.params.user.role !== "admin", disallow())],
+    patch: [iff((context) => context.params.user.role !== 'admin', disallow())],
     remove: [
-      iff((context) => context.params.user.role !== "admin", disallow()),
+      iff((context) => context.params.user.role !== 'admin', disallow()),
     ],
   },
 
